@@ -1,0 +1,15 @@
+<h1><%= @artist.name %></h1>
+
+<h3>Has <%= @artist.song_count %> <%= "song".pluralize(@artist.song_count) %></h3>
+
+<% if @artist.songs %>
+<ul>
+    <% @artist.songs.each do |s| %>
+        <li><%= link_to s.title, song_path(s) %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<%= link_to "Add Song", new_song_path %>
+<br />
+<%= link_to "Artist Index", artists_path %>
