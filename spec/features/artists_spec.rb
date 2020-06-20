@@ -7,9 +7,8 @@ describe 'artists', type: :feature do
     @voyager = @artist.songs.create!(title: 'Voyager')
   end
 
-  it "show page links to the artist's songs by title" do
+  it "links to the artist's songs by title" do
     visit artist_path(@artist)
-    expect(page.status_code).to eq(200)
     expect(page).to have_link('The Grid', href: song_path(@grid))
   end
 
@@ -21,9 +20,8 @@ describe 'artists', type: :feature do
     end
   end
 
-  it 'index page lists the artists' do
+  it 'lists the artists' do
     visit artists_path
-    expect(page.status_code).to eq(200)
     expect(page).to have_content('Daft Punk')
   end
 
